@@ -2,7 +2,7 @@ function spotifyLogin() {//implement state and PKCE parameters
   var url = "https://accounts.spotify.com/authorize";
   url += "?client_id=" + "0c2ae7c6bfa04d98b164f6e30559c13d";
   url += "&response_type=code";
-  url += "&redirect_uri=" + encodeURI("https://www.google.com");
+  url += "&redirect_uri=" + encodeURI("http://andonli.com/spotifydupe.html");
   url += "&scope=" + "playlist-read-private playlist-modify-private";
   url += "&show_dialog=true";
 
