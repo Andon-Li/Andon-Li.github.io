@@ -12,6 +12,7 @@ function spotifyLogin() {//implement state and PKCE parameters
 // URL: http://andonli.com/spotifydupe.html?code=AQAGTBzz8bHRTSlfx940K0sPCUvBy-O8cAjKJ-1E-QL27J6PeHpITXtFUuKcOMqP5wReoau87rDphNEWQIzzp-gJtwGXaW0FBQvX6Cco75K1q1TD8UptsRHY66UaJsK-BOI2ZJFgxfRvGXNfDJ2m1wN8QNB48NA_VHQG9Mkr8X-gJUmP9dhOIy_6GVR5cHDh6AMqSLgtsMsIzD2g3ohSGfNC6Zd3HqI5nQjAfDq1W-oejpUKKgUu
 
 function onPageLoad() {
+  console.log(bota("ok"))
   if (window.location.search.length > 0) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
