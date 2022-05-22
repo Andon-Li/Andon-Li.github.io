@@ -12,14 +12,13 @@ function spotifyLogin() {//implement state and PKCE parameters
 // URL: http://andonli.com/spotifydupe.html?code=AQAGTBzz8bHRTSlfx940K0sPCUvBy-O8cAjKJ-1E-QL27J6PeHpITXtFUuKcOMqP5wReoau87rDphNEWQIzzp-gJtwGXaW0FBQvX6Cco75K1q1TD8UptsRHY66UaJsK-BOI2ZJFgxfRvGXNfDJ2m1wN8QNB48NA_VHQG9Mkr8X-gJUmP9dhOIy_6GVR5cHDh6AMqSLgtsMsIzD2g3ohSGfNC6Zd3HqI5nQjAfDq1W-oejpUKKgUu
 
 function onPageLoad() {//when the page loads, if a query string exists, pull the query string section of the URL, and parse out the 'code'
-  //console.log(bota("ok"))
   if (window.location.search.length > 0) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let code = urlParams.get('code');
     console.log(code);
     console.log(urlParams);
-    //fetchAccessToken(code);
+    fetchAccessToken(code);
   }
 }
 
@@ -27,11 +26,7 @@ function fetchAccessToken(code) {
   let body = "grant_type=authorization_code";
   body += "&code=" + code;
   body += "&redirect_uri=" + encodeURI("http://andonli.com/spotifydupe.html");
-  console.log(body);
-  callAuthAPI(body);
-}
 
-function callAuthAPI(body) {
   const Http = new XMLHttpRequest();
   const url="https://accounts.spotify.com/api/token";
   Http.open("POST", url);
