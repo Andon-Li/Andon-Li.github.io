@@ -35,14 +35,25 @@ function fetchAccessToken(code) {
   Http.onreadystatechange=(e)=>{
     if (Http.readyState == XMLHttpRequest.DONE) {
       console.log(Http.responseText);
+      let json = JSON.parse(Http.responseText);
+      displayAccInfo(token);
 
     }
   }
 }
 
-function handleAuthResponse() {
+function displayAccInfo(token) {
 
+  const Http = new XMLHttpRequest();
+  const url="https://api.spotify.com/v1/me/shows?offset=0&limit=20";
+  Http.open("POST", url);
+  Http.setRequestHeader("Authorization", "Bearer " + token);
+  Http.setRequestHeader("Content-Type", "application/json");
+  Http.send();
 
+  Http.onreadystatechange=(e)=>{
+    console.log(Http.responseText);
+  }
 }
 
 function getPlaylistList() {
