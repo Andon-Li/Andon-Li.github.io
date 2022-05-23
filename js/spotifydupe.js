@@ -46,7 +46,7 @@ function fetchAccessToken(code) {
 function displayAccInfo(token) {
 
   const Http = new XMLHttpRequest();
-  const url="https://api.spotify.com/v1/me/shows?offset=0&limit=20";
+  const url="https://api.spotify.com/v1/me/playlists?limit=50&offset=0";
   Http.open("POST", url);
   Http.setRequestHeader("Authorization", "Bearer " + token);
   Http.setRequestHeader("Content-Type", "application/json");
