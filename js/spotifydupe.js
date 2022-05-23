@@ -36,6 +36,7 @@ function fetchAccessToken(code) {
     if (Http.readyState == XMLHttpRequest.DONE) {
       console.log(Http.responseText);
       let json = JSON.parse(Http.responseText);
+      let token = json.access_token;
       displayAccInfo(token);
 
     }
