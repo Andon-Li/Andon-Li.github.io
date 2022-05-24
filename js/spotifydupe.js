@@ -1,4 +1,5 @@
 function spotifyAPI(type, name, token) {
+  console.log("spotifyAPI() has been run");
   let url = '';
   if (name == 'currentUserInfo') {
     url = 'https://api.spotify.com/v1/me';
@@ -6,7 +7,7 @@ function spotifyAPI(type, name, token) {
   else if (name == 'currentUserPlaylist') {
     url = 'https://api.spotify.com/v1/me/playlists';
   }
-
+  console.log(url);
   const Http = new XMLHttpRequest();
   Http.open(type, url);
 
