@@ -37,6 +37,7 @@ function fetchAccessToken(code) {
       console.log(Http.responseText);
       let json = JSON.parse(Http.responseText);
       let token = json.access_token;
+      console.log(token);
       displayAccInfo(token);
 
     }
@@ -47,7 +48,7 @@ function displayAccInfo(token) {
 
   const Http = new XMLHttpRequest();
   const url="https://api.spotify.com/v1/me/playlists";
-  Http.open("POST", url);
+  Http.open("GET", url);
 
   Http.setRequestHeader("Accept", "application/json");
   Http.setRequestHeader("Content-Type", "application/json");
