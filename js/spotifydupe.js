@@ -24,6 +24,7 @@ function spotifyAPI(type, name, token) {
       return json;
     }
   }
+  console.log("spotifyAPI() has completely run without returning anything.");
 }
 
 function allPlaylistSongs(currentUserPlaylistJSON) {
