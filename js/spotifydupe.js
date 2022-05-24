@@ -81,9 +81,9 @@ function fetchAccessToken(code) {
 function displayAccInfo(token) {
 
   let currentUserInfoJSON = spotifyAPI('GET', 'currentUserInfo', token);
-  let currentUserPlaylistJSON = spotifyAPI('GET', 'currentUserPlaylist', token);
-
-  document.getElementById('accInfo').innerHTML = "Hello, " +  currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
+//  let currentUserPlaylistJSON = spotifyAPI('GET', 'currentUserPlaylist', token);
+  console.log(currentUserInfoJSON);
+//  document.getElementById('accInfo').innerHTML = "Hello, " +  currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
 
 }
 
