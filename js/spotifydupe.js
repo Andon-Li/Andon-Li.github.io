@@ -26,7 +26,7 @@ function spotifyAPI(type, name, token) {
   else if (name == '') {
     let url = '';
   }
-  
+
   const Http = new XMLHttpRequest();
   Http.open(type, url);
 
@@ -38,7 +38,7 @@ function spotifyAPI(type, name, token) {
 
   Http.onreadystatechange=(e)=>{
     if (Http.readyState == XMLHttpRequest.DONE) {
-      let json = JSON.parse(Http.responseText));
+      let json = JSON.parse(Http.responseText);
       return json;
     }
   }
