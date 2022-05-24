@@ -1,3 +1,57 @@
+function spotifyAPI(type, name, token) {
+  if (name == 'currentUserInfo') {
+    let url = 'https://api.spotify.com/v1/me';
+  }
+  else if (name == 'currentUserPlaylist') {
+    let url = 'https://api.spotify.com/v1/me/playlists';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  else if (name == '') {
+    let url = '';
+  }
+  
+  const Http = new XMLHttpRequest();
+  Http.open(type, url);
+
+  Http.setRequestHeader("Accept", "application/json");
+  Http.setRequestHeader("Content-Type", "application/json");
+  Http.setRequestHeader("Authorization", "Bearer " + token);
+
+  Http.send();
+
+  Http.onreadystatechange=(e)=>{
+    if (Http.readyState == XMLHttpRequest.DONE) {
+      let json = JSON.parse(Http.responseText));
+      return json;
+    }
+  }
+}
+
+function allPlaylistSongs(currentUserPlaylistJSON) {
+  let total = 0;
+  for (var i = 0; i < json.total; i++) {
+    total += currentUserPlaylistJSON.items[i].tracks.total;
+  }
+  return total;
+}
+
 function spotifyLogin() {//implement state and PKCE parameters
   let url = "https://accounts.spotify.com/authorize";
   url += "?client_id=" + "0c2ae7c6bfa04d98b164f6e30559c13d";
@@ -9,9 +63,9 @@ function spotifyLogin() {//implement state and PKCE parameters
   window.location.href = url;
 
 }
-// URL: http://andonli.com/spotifydupe.html?code=AQAGTBzz8bHRTSlfx940K0sPCUvBy-O8cAjKJ-1E-QL27J6PeHpITXtFUuKcOMqP5wReoau87rDphNEWQIzzp-gJtwGXaW0FBQvX6Cco75K1q1TD8UptsRHY66UaJsK-BOI2ZJFgxfRvGXNfDJ2m1wN8QNB48NA_VHQG9Mkr8X-gJUmP9dhOIy_6GVR5cHDh6AMqSLgtsMsIzD2g3ohSGfNC6Zd3HqI5nQjAfDq1W-oejpUKKgUu
 
-function onPageLoad() {//when the page loads, if a query string exists, pull the query string section of the URL, and parse out the 'code'
+
+function onPageLoad() {
   if (window.location.search.length > 0) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -34,10 +88,8 @@ function fetchAccessToken(code) {
 
   Http.onreadystatechange=(e)=>{
     if (Http.readyState == XMLHttpRequest.DONE) {
-      console.log(Http.responseText);
       let json = JSON.parse(Http.responseText);
       let token = json.access_token;
-      console.log(token);
       displayAccInfo(token);
 
     }
@@ -46,19 +98,11 @@ function fetchAccessToken(code) {
 
 function displayAccInfo(token) {
 
-  const Http = new XMLHttpRequest();
-  const url="https://api.spotify.com/v1/me/playlists";
-  Http.open("GET", url);
+  let currentUserInfoJSON = spotifyAPI('GET', 'currentUser', token);
+  let currentUserPlaylistJSON = spotifyAPI('GET', 'currentUserPlaylist', token);
 
-  Http.setRequestHeader("Accept", "application/json");
-  Http.setRequestHeader("Content-Type", "application/json");
-  Http.setRequestHeader("Authorization", "Bearer " + token);
+  document.getElementById('accInfo').innerHTML = "Hello, " + currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
 
-  Http.send();
-
-  Http.onreadystatechange=(e)=>{
-    console.log(Http.responseText);
-  }
 }
 
 function getPlaylistList() {
