@@ -46,10 +46,13 @@ function fetchAccessToken(code) {
 function displayAccInfo(token) {
 
   const Http = new XMLHttpRequest();
-  const url="https://api.spotify.com/v1/me/playlists?limit=50&offset=0";
+  const url="https://api.spotify.com/v1/me/playlists";
   Http.open("POST", url);
-  Http.setRequestHeader("Authorization", "Bearer " + token);
+
+  Http.setRequestHeader("Accept", "application/json");
   Http.setRequestHeader("Content-Type", "application/json");
+  Http.setRequestHeader("Authorization", "Bearer " + token);
+
   Http.send();
 
   Http.onreadystatechange=(e)=>{
