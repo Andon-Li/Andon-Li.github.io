@@ -6,27 +6,6 @@ function spotifyAPI(type, name, token) {
   else if (name == 'currentUserPlaylist') {
     url = 'https://api.spotify.com/v1/me/playlists';
   }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
-  else if (name == '') {
-    url = '';
-  }
 
   const Http = new XMLHttpRequest();
   Http.open(type, url);
@@ -40,6 +19,7 @@ function spotifyAPI(type, name, token) {
   Http.onreadystatechange=(e)=>{
     if (Http.readyState == XMLHttpRequest.DONE) {
       let json = JSON.parse(Http.responseText);
+      console.log(json);
       return json;
     }
   }
@@ -102,7 +82,7 @@ function displayAccInfo(token) {
   let currentUserInfoJSON = spotifyAPI('GET', 'currentUserInfo', token);
   let currentUserPlaylistJSON = spotifyAPI('GET', 'currentUserPlaylist', token);
 
-  document.getElementById('accInfo').innerHTML = "Hello, " + currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
+  document.getElementById('accInfo').innerHTML = "Hello, " +  currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
 
 }
 
