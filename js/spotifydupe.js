@@ -1,35 +1,35 @@
+const Http = new XMLHttpRequest();
 
-
-function spotifyAPI(type, name, token) {
-  console.log("spotifyAPI() has been run");
-  let url = '';
-  if (name == 'currentUserInfo') {
-    url = 'https://api.spotify.com/v1/me';
-  }
-  else if (name == 'currentUserPlaylist') {
-    url = 'https://api.spotify.com/v1/me/playlists';
-  }
-  console.log(url);
-  const Http = new XMLHttpRequest();
+function getUserInfo(token) {
+  url = 'https://api.spotify.com/v1/me';
   Http.open(type, url);
-
   Http.setRequestHeader("Accept", "application/json");
   Http.setRequestHeader("Content-Type", "application/json");
   Http.setRequestHeader("Authorization", "Bearer " + token);
-
   Http.send();
-
-  Http.onreadystatechange=(e)=>{
-    if (Http.readyState == XMLHttpRequest.DONE) {
-      let json = JSON.parse(Http.responseText);
-      console.log(json);
-      return json;
-    }
+  Http.onload=(e)=>{
+    let json = JSON.parse(Http.responseText);
+    document.getElementById('userName').innerHTML = json.displayname;
   }
-  console.log("spotifyAPI() has completely run without returning anything.");
 }
 
-
+function getPlaylistInfo(token) {
+  url = 'https://api.spotify.com/v1/me/playlists';
+  Http.open(type, url);
+  Http.setRequestHeader("Accept", "application/json");
+  Http.setRequestHeader("Content-Type", "application/json");
+  Http.setRequestHeader("Authorization", "Bearer " + token);
+  Http.send();
+  Http.onload=(e)=>{
+    let json = JSON.parse(Http.responseText);
+    document.getElementById('playlistTotal').innerHTML = json.total;
+    var songTotal = 0;
+    for (var i = 0; i < json.total; i++) {
+      songTotal += json.items[i].tracks.total;
+    }
+    document.getElementById('songTotal').innerHTML = songTotal;
+  }
+}
 
 
 function allPlaylistSongs(currentUserPlaylistJSON) {
@@ -89,12 +89,8 @@ function fetchAccessToken(code) {
 }
 
 function displayAccInfo(token) {
-
-  let currentUserInfoJSON = spotifyAPI('GET', 'currentUserInfo', token);
-//  let currentUserPlaylistJSON = spotifyAPI('GET', 'currentUserPlaylist', token);
-  console.log(currentUserInfoJSON);
-//  document.getElementById('accInfo').innerHTML = "Hello, " +  currentUserInfoJSON.display_name + ". Your  " + currentUserPlaylistJSON.total + " playlist(s) contain " + allPlaylistSongs(currentUserPlaylistJSON) + " songs.";
-
+  getUserName(token);
+  getPlaylistInfo(token);
 }
 
 function getPlaylistList() {
