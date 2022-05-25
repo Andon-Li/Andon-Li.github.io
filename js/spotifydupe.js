@@ -1,3 +1,5 @@
+
+
 function spotifyAPI(type, name, token) {
   console.log("spotifyAPI() has been run");
   let url = '';
@@ -27,6 +29,9 @@ function spotifyAPI(type, name, token) {
   console.log("spotifyAPI() has completely run without returning anything.");
 }
 
+
+
+
 function allPlaylistSongs(currentUserPlaylistJSON) {
   let total = 0;
   for (var i = 0; i < json.total; i++) {
@@ -35,7 +40,9 @@ function allPlaylistSongs(currentUserPlaylistJSON) {
   return total;
 }
 
-function spotifyLogin() {//implement state and PKCE parameters
+
+//When "Log into Spotify" button is pressed, open new tab
+function spotifyLogin() {
   let url = "https://accounts.spotify.com/authorize";
   url += "?client_id=" + "0c2ae7c6bfa04d98b164f6e30559c13d";
   url += "&response_type=code";
@@ -48,6 +55,8 @@ function spotifyLogin() {//implement state and PKCE parameters
 }
 
 
+
+//When the page loads, check for query code. If it exists, call fetchAccessToken() and pass the code through.
 function onPageLoad() {
   if (window.location.search.length > 0) {
     const queryString = window.location.search;
@@ -57,6 +66,8 @@ function onPageLoad() {
   }
 }
 
+
+//Using the code string, along with client id and client secret, send a request to Spotify
 function fetchAccessToken(code) {
   let body = "grant_type=authorization_code";
   body += "&code=" + code;
@@ -69,13 +80,11 @@ function fetchAccessToken(code) {
   Http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   Http.send(body);
 
-  Http.onreadystatechange=(e)=>{
-    if (Http.readyState == XMLHttpRequest.DONE) {
-      let json = JSON.parse(Http.responseText);
-      let token = json.access_token;
-      displayAccInfo(token);
+  Http.onload=(e)=>{
+    let json = JSON.parse(Http.responseText);
+    let token = json.access_token;
+    displayAccInfo(token);
 
-    }
   }
 }
 
