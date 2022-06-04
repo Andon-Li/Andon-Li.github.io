@@ -9,7 +9,7 @@ function getUserName(token) {
   Http.send();
   Http.onload=(e)=>{
     let json = JSON.parse(Http.responseText);
-    document.getElementById('userName').innerHTML = json.displayname;
+    document.getElementById('userName').innerText += json.display_name + '.';
   }
 }
 
@@ -22,12 +22,12 @@ function getPlaylistInfo(token) {
   Http.send();
   Http.onload=(e)=>{
     let json = JSON.parse(Http.responseText);
-    document.getElementById('playlistTotal').innerHTML = json.total;
+    document.getElementById('playlistTotal').innerText = json.total;
     var songTotal = 0;
     for (var i = 0; i < json.total; i++) {
       songTotal += json.items[i].tracks.total;
     }
-    document.getElementById('songTotal').innerHTML = songTotal;
+    document.getElementById('songTotal').innerText = songTotal;
   }
 }
 
@@ -47,7 +47,7 @@ function spotifyLogin() {
   url += "?client_id=" + "0c2ae7c6bfa04d98b164f6e30559c13d";
   url += "&response_type=code";
   url += "&redirect_uri=" + encodeURI("http://andonli.com/spotifydupe.html");
-  url += "&scope=" + "playlist-read-private playlist-modify-private";
+  url += "&scope=" + "playlist-read-private playlist-modify-private user-read-private";
   url += "&show_dialog=true";
 
   window.location.href = url;
@@ -108,11 +108,11 @@ function getPlaylistList() {
       const json = JSON.parse(Http.responseText);
       if (!json.error) {
         for (var i = 0; i < json.total; i++) {
-          document.getElementById('p1').innerHTML = document.getElementById('p1').innerHTML.concat(json.items[i].name);
+          document.getElementById('p1').innerText = document.getElementById('p1').innerText.concat(json.items[i].name);
         }
       }
       else {
-        document.getElementById('p1').innerHTML = 'An error was encountered.'
+        document.getElementById('p1').innerText = 'An error was encountered.'
       }
       console.log(json)
     }
