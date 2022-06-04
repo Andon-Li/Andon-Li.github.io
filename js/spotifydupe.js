@@ -2,7 +2,7 @@ const Http = new XMLHttpRequest();
 
 function getUserName(token) {
   url = 'https://api.spotify.com/v1/me';
-  Http.open(type, url);
+  Http.open('GET', url);
   Http.setRequestHeader("Accept", "application/json");
   Http.setRequestHeader("Content-Type", "application/json");
   Http.setRequestHeader("Authorization", "Bearer " + token);
@@ -15,7 +15,7 @@ function getUserName(token) {
 
 function getPlaylistInfo(token) {
   url = 'https://api.spotify.com/v1/me/playlists';
-  Http.open(type, url);
+  Http.open('GET', url);
   Http.setRequestHeader("Accept", "application/json");
   Http.setRequestHeader("Content-Type", "application/json");
   Http.setRequestHeader("Authorization", "Bearer " + token);
