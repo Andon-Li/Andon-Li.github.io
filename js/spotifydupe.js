@@ -9,7 +9,9 @@ function getUserName(token) {
   Http.send();
   Http.onload=(e)=>{
     let json = JSON.parse(Http.responseText);
+    console.log(json.display_name);
     document.getElementById('userName').innerText += json.display_name + '.';
+    document.getElementById('userName').innerText = json.display_name + '.';
   }
 }
 
@@ -25,7 +27,9 @@ function getPlaylistInfo(token) {
     document.getElementById('playlistTotal').innerText = json.total;
     var songTotal = 0;
     for (var i = 0; i < json.total; i++) {
-      songTotal += json.items[i].tracks.total;
+      if () {
+        songTotal += json.items[i].tracks.total;
+      }
     }
     document.getElementById('songTotal').innerText = songTotal;
   }
