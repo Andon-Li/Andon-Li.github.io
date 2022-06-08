@@ -27,7 +27,7 @@ function getPlaylistInfo(token) {
     document.getElementById('playlistTotal').innerText = json.total;
     var songTotal = 0;
     for (var i = 0; i < json.total; i++) {
-      if () {
+      if (true) {
         songTotal += json.items[i].tracks.total;
       }
     }
