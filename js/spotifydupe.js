@@ -1,6 +1,7 @@
 const Http = new XMLHttpRequest();
 
 function getUserName(token) {
+  console.log("what");
   url = 'https://api.spotify.com/v1/me';
   Http.open('GET', url);
   Http.setRequestHeader("Accept", "application/json");
