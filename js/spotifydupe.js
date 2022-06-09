@@ -10,6 +10,8 @@ function getUserName(token) {
   Http.onload=(e)=>{
     let json = JSON.parse(Http.responseText);
     console.log(json.display_name);
+    console.log(json);
+    console.log("hello");
     document.getElementById('userName').innerText += json.display_name + '.';
     document.getElementById('userName').innerText = json.display_name + '.';
   }
