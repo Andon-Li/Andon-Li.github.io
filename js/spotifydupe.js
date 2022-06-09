@@ -82,7 +82,7 @@ function fetchAccessToken(code) {
 
   const Http = new XMLHttpRequest();
   const url="https://accounts.spotify.com/api/token";
-  Http.open("POST", url);
+  Http.open("POST", url, false);
   Http.setRequestHeader("Authorization", "Basic " + "MGMyYWU3YzZiZmEwNGQ5OGIxNjRmNmUzMDU1OWMxM2Q6NzJjOTQ4MDk3YTI1NDIzMjkzY2U2ZTFkNDlkOGUwNzA="); //bota("0c2ae7c6bfa04d98b164f6e30559c13d" + ":" + "72c948097a25423293ce6e1d49d8e070"
   Http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   Http.send(body);
