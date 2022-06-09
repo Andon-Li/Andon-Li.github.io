@@ -98,6 +98,7 @@ function fetchAccessToken(code) {
 function displayAccInfo(token) {
   getPlaylistInfo(token);
   getUserName(token);
+  getPlaylistInfo(token);
 }
 
 function getPlaylistList() {
