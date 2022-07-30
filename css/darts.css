@@ -1,0 +1,104 @@
+* {
+  outline: 2px solid black;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.picture {
+  width: 50%;
+}
+
+.sidebar {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.teamInfo {
+  display: flex;
+  height: 50%;
+  font-size: 40px;
+  font-family: sans-serif;
+  justify-content: space-around;
+  padding: 30px
+}
+
+.teamOne,
+.teamTwo {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  border: 2px solid black;
+}
+
+.teamOne {
+ background-color: #02cbe3;
+}
+
+.teamTwo {
+  background-color: #aff2fa;
+}
+
+.prevScores {
+  font-size: 25px;
+  color: gray;
+}
+
+button {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#outerBull {
+  background-color: #b1faaf;
+}
+
+#innerBull {
+  background-color: #faafaf;
+}
+
+#oneMulti {
+  background-color: #02cbe3;
+}
+
+#twoMulti,
+#threeMulti {
+  background-color: #aff2fa;
+}
+
+.bullseye,
+.multiplier {
+  text-align: center;
+}
+
+.confirm {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#scoreTotal {
+  font-size: 40px;
+}
+
+.userInputs {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media (max-width:  {
+
+}

@@ -1,23 +1,59 @@
-/* Style the header */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  width: 85%;
+  margin-right: 0;
+  margin-left: auto;
+  background-color: #fff;
+  font-size: 40px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 15%;
+  height: 100vh;
+  background-color: rgb(233, 237, 240);
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 40px;
+}
+
+.pageNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 30px;
+  height: 60%;
+}
+
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
 .header {
- padding: 10px 16px;
- background: #555;
- color: #f1f1f1;
+  text-align: center;
+
 }
 
-/* Page content */
-.content {
- padding: 16px;
+html {
+  scroll-behavior: smooth;
 }
 
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
- position: fixed;
- top: 0;
- width: 100%
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
- padding-top: 102px;
+/*prevent used links from turning purple and getting underlined*/
+a {
+  text-decoration: none;
+  color: rgb(0,0,0);
 }

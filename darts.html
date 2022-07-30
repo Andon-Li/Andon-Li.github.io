@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/darts.css">
+    <title>Dart Calculator</title>
+    <script src="./js/darts.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="picture">
+        <img id="pic" src="./assets/dartboard/1multi.png" alt="Dartboard" width="100%">
+      </div>
+      <div class="sidebar">
+        <div class="teamInfo">
+          <div class="teamOne">
+            <span>Team 1</span>
+            <span>301/301</span>
+            <span class="prevScores">60 30 15 3 5</span>
+          </div>
+          <div class="teamTwo">
+            <span>Team 2</span>
+            <span>301/301</span>
+            <span class="prevScores">60 30 15 3 5</span>
+          </div>
+        </div>
+        <div class="userInputs">
+          <div class="bullseye">
+            <button type="button" id="outerBull" onclick="recolor(this.id)">Outer Bull</button>
+            <button type="button" id="innerBull" onclick="recolor(this.id)">Inner Bull</button>
+          </div>
+          <div class="multiplier">
+            <button type="button" id="oneMulti" onclick="recolor(this.id)">1x</button>
+            <button type="button" id="twoMulti" onclick="recolor(this.id)">2x</button>
+            <button type="button" id="threeMulti" onclick="recolor(this.id)">3x</button>
+            <input type="number" id="pointInput" onchange="math()" max="20" min="1">
+          </div>
+          <div class="confirm">
+            <span id="scoreTotal">0</span>
+            <button type="submit" id="confirm">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
