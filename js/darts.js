@@ -1,6 +1,9 @@
 /*
 when buttons are clicked, replace the image with one that highlights the
 relevant section of the dartboard.
+
+set sidebar to 100% of viewport
+fix image issue for live website
 */
 function recolor(id) {
   const element = document.getElementById(id);
@@ -37,13 +40,13 @@ function recolor(id) {
     element.style.backgroundColor = "#02cbe3";
     multiplier = 2;
     math();
-    pic.src = "./assets/dartboard/2Multi.png";
+    pic.src = "./assets/dartboard/2multi.png";
   }
   else if (id == "threeMulti") {
     element.style.backgroundColor = "#02cbe3";
     multiplier = 3;
     math();
-    pic.src = "./assets/dartboard/3Multi.png";
+    pic.src = "./assets/dartboard/3multi.png";
   }
 }
 
