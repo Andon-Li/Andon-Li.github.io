@@ -20,6 +20,6 @@ function process_prompt() {
 }
 fetch('../cmudict-0.7b.txt')
   .then(function(response){
-    const dictionary = response.value()
+    const dictionary = response.text().value
     console.log(dictionary)
   })
