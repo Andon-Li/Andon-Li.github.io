@@ -4,6 +4,6 @@ function process_prompt() {
   console.log(prompt_array);
 }
 fetch('../cmudict-0.7b.txt')
-  .then(function(){
-    console.log('hello')
+  .then(function(response){
+    console.log(response.text())
   })
