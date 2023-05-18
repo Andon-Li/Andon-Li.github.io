@@ -19,7 +19,5 @@ function process_prompt() {
   }
 }
 fetch('../cmudict-0.7b.txt')
-  .then(function(response){
-    const dictionary = response.text().value
-    console.log(dictionary)
-  })
+  .then((response) => response.text())
+  .then((text) => console.log(text))
