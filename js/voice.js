@@ -5,5 +5,5 @@ function process_prompt() {
 }
 fetch('../cmudict-0.7b.txt')
   .then(function(response){
-    console.log(response.text())
+    console.log(response.value)
   })
