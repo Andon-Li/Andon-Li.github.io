@@ -19,15 +19,5 @@ function process_prompt() {
   }
 }
 fetch('../cmudict-0.7b.txt')
-  .then(function() {
-    console.log("1")
-  })
-  .then(function() {
-    console.log("2")
-  })
-  .then(function() {
-    console.log("3")
-  })
-  .then(function() {
-    console.log("4")
-  })
+  .then((response) => response.text())
+  .then((text) => console.log(text.<value>))
