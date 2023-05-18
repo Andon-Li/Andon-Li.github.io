@@ -1,9 +1,25 @@
 function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
-  console.log(prompt_array);
+
+  for (const word of prompt_array) {
+    switch (word.slice(-1)) {
+      case '.':
+        punctuation = 'PERIOD'
+      case ',':
+        punctuation = 'COMMA'
+      case '!':
+        punctuation = 'EXCLAIM'
+      case '?':
+        punctuation = 'QUESTION'
+      default:
+        punctuation = null
+    }
+
+  }
 }
 fetch('../cmudict-0.7b.txt')
   .then(function(response){
-    console.log(response.value)
+    const dictionary = response.text
+    console.log(dictionary)
   })
