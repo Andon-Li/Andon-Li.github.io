@@ -16,9 +16,10 @@ function process_prompt() {
         punctuation = null;
     }
 
-    phonetic_list = []
+    var phonetic_list = []
 
     for (line of dictionary) {
+      console.log(line)
       if (line.startsWith(word)) {
         phonetic_list.push(line.split('  ')[1].split(' '));
         break
