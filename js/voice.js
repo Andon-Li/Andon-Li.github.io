@@ -21,4 +21,7 @@ function process_prompt() {
 
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
-  .then((text) => document.getElementById('text_area').innerHTML = text);
+  .then((text) => {
+    document.getElementById('text_area').innerHTML = text;
+    console.log(text);
+});
