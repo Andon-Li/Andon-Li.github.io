@@ -28,6 +28,11 @@ function process_prompt() {
   getElementById('text_area').innerHTML = phonetic_list[0]
 }
 
-const dictionary = fetch('../cmudict-0.7b.txt')
+const dictionary;
+
+fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
-  .then((text) => text.split('\n'));
+  .then((text) => {
+    dictionary = text.split('\n');
+    console.log(dictionary);
+});
