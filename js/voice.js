@@ -1,6 +1,7 @@
 function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
+  phonetic_list = []
 
   for (word of prompt_array) {
     switch (word.slice(-1)) {
