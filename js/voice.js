@@ -2,7 +2,7 @@ function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
 
-  for (const word of prompt_array) {
+  for (word of prompt_array) {
     switch (word.slice(-1)) {
       case '.':
         punctuation = 'PERIOD';
@@ -16,12 +16,19 @@ function process_prompt() {
         punctuation = null;
     }
 
+    phonetic_list = []
+
+    for (line of dictionary) {
+      if line.startsWith(word) {
+        phonetic_list.push(line.split('  ')[1].split(' '))
+        break
+      }
+    }
   }
 }
 
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
   .then((text) => {
-    document.getElementById('text_area').innerHTML = text;
-    console.log(text.split('\n'))
+    const dictionary = text.split('\n'));
 });
