@@ -20,7 +20,7 @@ function process_prompt() {
 
     for (line of dictionary) {
       if (line.startsWith(word)) {
-        phonetic_list.push(line.split('  ')[1].split(' '))
+        phonetic_list.push(line.split('  ')[1].split(' '));
         break
       }
     }
@@ -28,9 +28,6 @@ function process_prompt() {
   getElementById('text_area').innerHTML = phonetic_list[0]
 }
 
-fetch('../cmudict-0.7b.txt')
+const dictionary = fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
-  .then((text) => {
-    const dictionary = text.split('\n');
-    console.log(dictionary)
-});
+  .then((text) => text.split('\n'));
