@@ -28,7 +28,7 @@ function process_prompt() {
   getElementById('text_area').innerHTML = phonetic_list[0]
 }
 
-const dictionary;
+var dictionary;
 
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
