@@ -25,14 +25,12 @@ function process_prompt() {
       }
     }
   }
-  getElementById('text_area').innerHTML = phonetic_list[0]
+  document.getElementById('text_area').innerHTML = phonetic_list[0]
 }
 
 var dictionary;
-
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
   .then((text) => {
     dictionary = text.split('\n');
-    console.log(dictionary);
 });
