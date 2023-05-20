@@ -7,6 +7,7 @@ function process_prompt() {
     switch (word.slice(-1)) {
       case '.':
         punctuation = 'PERIOD';
+        console.log('a period has been found')
       case ',':
         punctuation = 'COMMA';
       case '!':
