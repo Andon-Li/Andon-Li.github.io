@@ -21,9 +21,6 @@ function process_prompt() {
     for (line of dictionary) {
       if (line.startsWith(word)) {
         phonetic_list.push(line.split('  ')[1].split(' '));
-        if (punctuation) {
-          phonetic_list[phonetic_list.length-1].push(punctuation)
-        }
         break
       }
     }
