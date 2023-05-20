@@ -15,9 +15,7 @@ function process_prompt() {
       default:
         punctuation = null;
     }
-
-    var phonetic_list = []
-
+    
     for (line of dictionary) {
       if (line.startsWith(word)) {
         console.log(word)
@@ -29,7 +27,7 @@ function process_prompt() {
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
-
+var phonetic_list = []
 var dictionary;
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
