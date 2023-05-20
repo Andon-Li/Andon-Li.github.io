@@ -32,5 +32,5 @@ fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
   .then((text) => {
     const dictionary = text.split('\n');
-    console.log("test!!!!!!!!!!!!!")
+    console.log(dictionary)
 });
