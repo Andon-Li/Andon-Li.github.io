@@ -19,6 +19,8 @@ function process_prompt() {
   }
 }
 
+const text_area = getElementById('text_area')
+
 fetch('../cmudict-0.7b.txt')
   .then((response) => {response.text()})
-  .then((text) => {console.log(text)})
+  .then((text) => {text_area.innerHTML = text})
