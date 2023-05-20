@@ -15,7 +15,7 @@ function process_prompt() {
       default:
         punctuation = null;
     }
-    
+
     for (line of dictionary) {
       if (line.startsWith(word)) {
         console.log(word)
@@ -24,6 +24,9 @@ function process_prompt() {
         break
       }
     }
+    phonetic_list.push('');
+    phonetic_list.push('');
+    phonetic_list.push('');
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
