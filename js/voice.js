@@ -18,15 +18,13 @@ function process_prompt() {
 
     for (line of dictionary) {
       if (line.startsWith(word)) {
-        console.log(word)
-        console.log('----------------------------')
         phonetic_list.push(line.split('  ')[1].split(' '));
+        if (punctuation) {
+          phonetic_list[phonetic_list.length-1].push(punctuation)
+        }
         break
       }
     }
-    phonetic_list.push('');
-    phonetic_list.push('');
-    phonetic_list.push('');
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
