@@ -20,4 +20,4 @@ function process_prompt() {
 }
 
 fetch('../cmudict-0.7b.txt')
-  .then((response) => console.log(response.text()))
+  .then((response) => console.log(response)
