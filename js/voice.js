@@ -19,7 +19,7 @@ function process_prompt() {
     phonetic_list = []
 
     for (line of dictionary) {
-      if line.startsWith(word) {
+      if (line.startsWith(word)) {
         phonetic_list.push(line.split('  ')[1].split(' '))
         break
       }
