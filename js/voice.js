@@ -27,7 +27,7 @@ function process_prompt() {
       }
     }
   }
-  document.getElementById('text_area').innerHTML = phonetic_list[0]
+  document.getElementById('text_area').innerHTML = phonetic_list
 }
 
 var dictionary;
