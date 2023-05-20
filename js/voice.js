@@ -25,6 +25,7 @@ function process_prompt() {
       }
     }
   }
+  getElementById('text_area').innerHTML = phonetic_list[0]
 }
 
 fetch('../cmudict-0.7b.txt')
