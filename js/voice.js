@@ -19,8 +19,9 @@ function process_prompt() {
     var phonetic_list = []
 
     for (line of dictionary) {
-      console.log(line)
       if (line.startsWith(word)) {
+        console.log(word)
+        console.log('----------------------------')
         phonetic_list.push(line.split('  ')[1].split(' '));
         break
       }
