@@ -31,5 +31,5 @@ function process_prompt() {
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
   .then((text) => {
-    const dictionary = text.split('\n'));
+    const dictionary = text.split('\n');
 });
