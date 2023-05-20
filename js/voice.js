@@ -5,23 +5,19 @@ function process_prompt() {
   for (const word of prompt_array) {
     switch (word.slice(-1)) {
       case '.':
-        punctuation = 'PERIOD'
+        punctuation = 'PERIOD';
       case ',':
-        punctuation = 'COMMA'
+        punctuation = 'COMMA';
       case '!':
-        punctuation = 'EXCLAIM'
+        punctuation = 'EXCLAIM';
       case '?':
-        punctuation = 'QUESTION'
+        punctuation = 'QUESTION';
       default:
-        punctuation = null
+        punctuation = null;
     }
 
   }
 }
-fetch('../cmudict-0.7b.txt')
-  .then((value) => console.log(value.text()))
-  .then((value) => console.log(value.text()))
 
-console.log('weuiofoasdfhasdfhjsdfhjk')
-  fetch('../cmudict-0.7b.txt')
-    .then().then((value) => console.log(value.text()))
+fetch('../cmudict-0.7b.txt')
+  .then((response) => console.log(response))
