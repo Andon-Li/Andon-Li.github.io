@@ -20,7 +20,7 @@ function process_prompt() {
       default:
         punctuation = null;
     }
-
+    console.log(prompt_array)
     console.log(punctuation);
     console.log(word);
 
