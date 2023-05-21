@@ -6,19 +6,19 @@ function process_prompt() {
   for (word of prompt_array) {
     switch (word.slice(-1)) {
       case '.':
-        punctuation = 'PERIOD';
+        var punctuation = 'PERIOD';
         word = word.slice(0, -1);
       case ',':
-        punctuation = 'COMMA';
+        var punctuation = 'COMMA';
         word = word.slice(0, -1);
       case '!':
-        punctuation = 'EXCLAIM';
+        var punctuation = 'EXCLAIM';
         word = word.slice(0, -1);
       case '?':
-        punctuation = 'QUESTION';
+        var punctuation = 'QUESTION';
         word = word.slice(0, -1);
       default:
-        punctuation = 'NONE';
+        var punctuation = 'NONE';
     }
     console.log(prompt_array);
     console.log(punctuation);
