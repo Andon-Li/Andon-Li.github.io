@@ -7,16 +7,16 @@ function process_prompt() {
     switch (word.slice(-1)) {
       case '.':
         punctuation = 'PERIOD';
-        word = word.slice(-1);
+        word = word.slice(0, -1);
       case ',':
         punctuation = 'COMMA';
-        word = word.slice(-1);
+        word = word.slice(0, -1);
       case '!':
         punctuation = 'EXCLAIM';
-        word = word.slice(-1);
+        word = word.slice(0, -1);
       case '?':
         punctuation = 'QUESTION';
-        word = word.slice(-1);
+        word = word.slice(0, -1);
       default:
         punctuation = null;
     }
