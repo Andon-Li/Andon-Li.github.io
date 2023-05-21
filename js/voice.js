@@ -7,13 +7,16 @@ function process_prompt() {
     switch (word.slice(-1)) {
       case '.':
         punctuation = 'PERIOD';
-        console.log('a period has been found')
+        word = word.slice(-1);
       case ',':
         punctuation = 'COMMA';
+        word = word.slice(-1);
       case '!':
         punctuation = 'EXCLAIM';
+        word = word.slice(-1);
       case '?':
         punctuation = 'QUESTION';
+        word = word.slice(-1);
       default:
         punctuation = null;
     }
@@ -21,6 +24,9 @@ function process_prompt() {
     for (line of dictionary) {
       if (line.startsWith(word)) {
         phonetic_list.push(line.split('  ')[1].split(' '));
+        if (punctuation) {
+          phonetic_list[phonetic_list.length - 1].push(punctuation);
+        }
         break
       }
     }
