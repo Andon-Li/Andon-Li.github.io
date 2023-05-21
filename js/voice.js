@@ -25,8 +25,9 @@ function process_prompt() {
     console.log(word);
 
     for (line of dictionary) {
-      if (line.startsWith(word)) {
-        phonetic_list.push(line.split('  ')[1].split(' '));
+      split = line.split('  ')
+      if (split[0] == word) {
+        phonetic_list.push(split[1].split(' '));
         if (punctuation) {
           phonetic_list[phonetic_list.length - 1].push(punctuation);
         }
