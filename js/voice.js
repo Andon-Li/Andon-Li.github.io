@@ -18,14 +18,14 @@ function process_prompt() {
         punctuation = 'QUESTION';
         word = word.slice(0, -1);
       default:
-        punctuation = null;
+        punctuation = 'NONE';
     }
-    console.log(prompt_array)
+    console.log(prompt_array);
     console.log(punctuation);
     console.log(word);
 
     for (line of dictionary) {
-      split = line.split('  ')
+      split = line.split('  ');
       if (split[0] == word) {
         phonetic_list.push(split[1].split(' '));
         if (punctuation) {
