@@ -50,14 +50,14 @@ function process_prompt() {
 
 var phonetic_list;
 var dictionary;
-
+var sound;
 fetch('../cmudict-0.7b.txt')
   .then((response) => response.text())
   .then((text) => {
     dictionary = text.split('\n');
 });
 
-var sound = new Howl({
+sound = new Howl({
   src: ['test.mp3']
 });
 
