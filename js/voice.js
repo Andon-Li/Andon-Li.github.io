@@ -1,5 +1,3 @@
-import {Howl, Howler} from 'howler';
-
 function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
@@ -47,6 +45,8 @@ function process_prompt() {
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
+
+import {Howl, Howler} from 'howler';
 
 var phonetic_list;
 var dictionary;
