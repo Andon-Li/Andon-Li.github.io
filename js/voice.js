@@ -4,21 +4,20 @@ function process_prompt() {
   phonetic_list = []
 
   for (word of prompt_array) {
+    var punctuation = ''
     switch (word.slice(-1)) {
       case '.':
-        var punctuation = 'PERIOD';
+        punctuation = 'PERIOD';
         word = word.slice(0, -1);
       case ',':
-        var punctuation = 'COMMA';
+        punctuation = 'COMMA';
         word = word.slice(0, -1);
       case '!':
-        var punctuation = 'EXCLAIM';
+        punctuation = 'EXCLAIM';
         word = word.slice(0, -1);
       case '?':
-        var punctuation = 'QUESTION';
+        punctuation = 'QUESTION';
         word = word.slice(0, -1);
-      default:
-        var punctuation = 'NONE';
     }
     console.log(prompt_array);
     console.log(punctuation);
