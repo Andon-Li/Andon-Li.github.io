@@ -51,3 +51,5 @@ fetch('../cmudict-0.7b.txt')
   .then((text) => {
     dictionary = text.split('\n');
 });
+
+export {};
