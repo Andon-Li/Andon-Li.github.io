@@ -1,3 +1,5 @@
+import {Howl, Howler} from './howler.core.js';
+
 function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
@@ -39,7 +41,6 @@ function process_prompt() {
       }
     }
   }
-  document.getElementById('text_area').innerHTML = phonetic_list
 }
 
 var phonetic_list;
