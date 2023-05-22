@@ -7,31 +7,31 @@ function process_prompt() {
     switch (word.slice(-1)) {
 
       case '.':
-        phonetic_list.push('PERIOD');
+        phonetic_list.push(['PERIOD']);
         word = word.slice(0, -1);
         console.log('a period has been found');
         break
 
       case ',':
-        phonetic_list.push('COMMA');
+        phonetic_list.push(['COMMA']);
         word = word.slice(0, -1);
         console.log('a comma has been found');
         break
 
       case '!':
-        phonetic_list.push('EXCLAIM');
+        phonetic_list.push(['EXCLAIM']);
         word = word.slice(0, -1);
         console.log('a excalim has been found');
         break
 
       case '?':
-        phonetic_list.push('QUESTION');
+        phonetic_list.push(['QUESTION']);
         word = word.slice(0, -1);
         console.log('a question has been found');
         break
 
       default:
-        phonetic_list.push('NONE');
+        phonetic_list.push(['NONE']);
         console.log('no punctuation was found');
     }
 
