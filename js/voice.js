@@ -54,3 +54,9 @@ fetch('../cmudict-0.7b.txt')
   .then((text) => {
     dictionary = text.split('\n');
 });
+
+var sound = new Howl({
+  src: ['test.mp3']
+});
+
+sound.play();
