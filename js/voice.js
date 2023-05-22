@@ -7,38 +7,34 @@ function process_prompt() {
     switch (word.slice(-1)) {
 
       case '.':
-        phonetic_list.push(['PERIOD']);
+        punctuation = 'PERIOD';
         word = word.slice(0, -1);
-        console.log('a period has been found');
         break
 
       case ',':
-        phonetic_list.push(['COMMA']);
+        punctuation = 'COMMA';
         word = word.slice(0, -1);
-        console.log('a comma has been found');
         break
 
       case '!':
-        phonetic_list.push(['EXCLAIM']);
+        punctuation = 'EXCLAIM';
         word = word.slice(0, -1);
-        console.log('a excalim has been found');
         break
 
       case '?':
-        phonetic_list.push(['QUESTION']);
+        punctuation = 'QUESTION';
         word = word.slice(0, -1);
-        console.log('a question has been found');
         break
 
       default:
-        phonetic_list.push(['NONE']);
-        console.log('no punctuation was found');
+        punctuation = 'NONE';
     }
 
     for (line of dictionary) {
       split = line.split('  ');
       if (split[0] == word) {
-        phonetic_list[phonetic_list.length - 1].push(split[1].split(' '));
+        phonetic_list.push(split[1].split(' '));
+        phonetic_list[phonetic_list.length-1].unshift(punctuation)
         break
       }
     }
