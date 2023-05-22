@@ -32,6 +32,7 @@ function process_prompt() {
 
       default:
         phonetic_list.push('NONE');
+        console.log('no punctuation was found');
     }
 
     for (line of dictionary) {
