@@ -1,3 +1,5 @@
+import {Howl, Howler} from 'howler';
+
 function process_prompt() {
   prompt = document.getElementById('prompt_input').value.toUpperCase();
   prompt_array = prompt.split(' ');
