@@ -46,8 +46,6 @@ function process_prompt() {
   document.getElementById('text_area').innerHTML = phonetic_list
 }
 
-import {Howl, Howler} from 'howler';
-
 var phonetic_list;
 var dictionary;
 var sound;
