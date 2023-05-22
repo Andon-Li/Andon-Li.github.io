@@ -8,18 +8,22 @@ function process_prompt() {
       case '.':
         var punctuation = 'PERIOD';
         word = word.slice(0, -1);
+        console.log('a period has been found');
         break
       case ',':
         var punctuation = 'COMMA';
         word = word.slice(0, -1);
+        console.log('a comma has been found');
         break
       case '!':
         var punctuation = 'EXCLAIM';
         word = word.slice(0, -1);
+        console.log('a excalim has been found');
         break
       case '?':
         var punctuation = 'QUESTION';
         word = word.slice(0, -1);
+        console.log('a question has been found');
         break
       default:
         var punctuation = 'NONE';
@@ -28,7 +32,7 @@ function process_prompt() {
     console.log(prompt_array);
     console.log(punctuation);
     console.log(word);
-
+    /*
     for (line of dictionary) {
       split = line.split('  ');
       if (split[0] == word) {
@@ -39,6 +43,7 @@ function process_prompt() {
         break
       }
     }
+    */
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
