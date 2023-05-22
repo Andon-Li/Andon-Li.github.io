@@ -32,7 +32,7 @@ function process_prompt() {
     console.log(prompt_array);
     console.log(punctuation);
     console.log(word);
-    /*
+
     for (line of dictionary) {
       split = line.split('  ');
       if (split[0] == word) {
@@ -43,7 +43,7 @@ function process_prompt() {
         break
       }
     }
-    */
+    
   }
   document.getElementById('text_area').innerHTML = phonetic_list
 }
