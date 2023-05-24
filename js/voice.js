@@ -85,8 +85,10 @@ function pronounce() {
       Z:  [37000,1000],
       ZH: [38000,1000]}
   });
-  for (let i = 0; i < 100; i++) {
-    sound.play('AA');
+  for (word of phonetic_list) {
+    for (let i = 1; i < word.length; i++) {
+      sound.play(word[i])
+    }
   }
 }
 
