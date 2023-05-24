@@ -83,11 +83,14 @@ function pronounce() {
       W:  [35000,1000],
       Y:  [36000,1000],
       Z:  [37000,1000],
-      ZH: [38000,1000]}
+      ZH: [38000,1000].
+
+    }
   });
+
   for (word of phonetic_list) {
     for (let i = 1; i < word.length; i++) {
-      sound.play(word[i])
+      sound.play(word[i]);
     }
   }
 }
@@ -100,3 +103,15 @@ fetch('../cmudict-0.7b.txt')
   .then((text) => {
     dictionary = text.split('\n');
 });
+
+var sound = new Howl({
+  src: ['../assets/phonetics.mp3'],
+  sprite: {
+    blast: [0, 3000],
+    laser: [4000, 1000],
+    winner: [6000, 5000]
+  }
+});
+
+// Shoot the laser!
+sound.play('laser');
