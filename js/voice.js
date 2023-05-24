@@ -87,6 +87,7 @@ function pronounce() {
   });
   for (let i = 0; i < 100; i++) {
     sound.play('AA');
+    await new Promise(r => setTimeout(r, 500));
   }
 }
 
