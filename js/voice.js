@@ -84,14 +84,9 @@ function pronounce() {
       Y:  [36000,1000],
       Z:  [37000,1000],
       ZH: [38000,1000]}
-  })
-  for (word in phonetic_list) {
-    for (let i = 1; i < word.length; i++) {
-      if (word[i].length > 2) {
-        word[i] = word[i].slice(0,2)
-      }
-      sound.play(word[i])
-    }
+  });
+  for (let i = 0; i < 100; i++) {
+    sound.play('AA');
   }
 }
 
@@ -103,8 +98,3 @@ fetch('../cmudict-0.7b.txt')
   .then((text) => {
     dictionary = text.split('\n');
 });
-
-var sound = new Howl({
-  src: ['test.mp3']
-});
-sound.play()
