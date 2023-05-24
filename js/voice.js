@@ -41,6 +41,10 @@ function process_prompt() {
   }
 }
 
+function pronounce() {
+
+}
+
 var phonetic_list;
 var dictionary;
 var sound;
