@@ -121,7 +121,7 @@ async function pronounce() {
   for (word of phonetic_list) {
     for (let i = 1; i < word.length; i++) {
       sound.play(word[i]);
-      await sleep(1000);
+      await sleep(500);
     }
   }
 }
