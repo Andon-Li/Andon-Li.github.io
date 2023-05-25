@@ -34,11 +34,12 @@ function process_prompt() {
       split = line.split('  ');
       if (split[0] == word) {
         phonetic_list.push(split[1].split(' '));
-        phonetic_list[phonetic_list.length-1].unshift(punctuation)
+        phonetic_list[phonetic_list.length-1].unshift(punctuation);
         break
       }
     }
   }
+  document.getElementById('pronouce_button').removeAttribute('disabled');
 }
 
 async function pronounce() {
