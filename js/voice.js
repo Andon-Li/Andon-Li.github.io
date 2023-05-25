@@ -43,7 +43,7 @@ function process_prompt() {
 
 async function pronounce() {
   var sound = new Howl({
-    src: ['../assets/phonetics.mp3'],
+    src: ['../assets/soundfile1.mp3'],
     sprite: {
       AA0: [0,1000],
       AA1: [0,1000],
@@ -121,7 +121,7 @@ async function pronounce() {
   for (word of phonetic_list) {
     for (let i = 1; i < word.length; i++) {
       sound.play(word[i]);
-      await sleep(1000)
+      await sleep(1000);
     }
   }
 }
