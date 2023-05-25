@@ -135,16 +135,3 @@ fetch('../cmudict-0.7b.txt')
   .then((text) => {
     dictionary = text.split('\n');
 });
-
-var sound = new Howl({
-  src: ['../assets/phonetics.mp3'],
-  sprite: {
-    blast: [0, 3000],
-    laser: [4000, 1000],
-    winner: [6000, 5000],
-    __default: [0, 1000]
-  }
-});
-
-// Shoot the laser!
-sound.play('laser');
