@@ -19,12 +19,8 @@
 
 <h2 id="timer">--:--</h2>
 
-<button type="button">Start</button>
-<button type="button">Pause</button>
-<br><br>
-
 <label for="min">min</label>
-<input type="number" id="min" style="width: 50px">
+<input type="number" name="min" id="min" style="width: 50px">
 <span><b>:</b></span>
 <label for="sec">sec</label>
 <input type="number" id="sec" style="width: 50px">
@@ -33,23 +29,32 @@
 
 
 <script>
-    const min = parseInt(document.getElementById("min").innerHTML)
-    const sec = parseInt(document.getElementById("sec").innerHTML)
+    function setTimer() {
 
-    const x = setInterval(function () {
+        const min = parseInt(document.getElementById("min").value) || 0
+        const sec = parseInt(document.getElementById("sec").value) || 0
 
-        const distance = (min * 60 * 1000) + (sec * 1000);
+        let totalSecs = min * 60 + sec
 
-        const minutes = distance % (1000 * 60 * 60);
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const timer = setInterval(function () {
 
-        document.getElementById("timer").innerHTML = minutes.toString()
+            document.getElementById("timer").innerHTML =
+                Math.floor(totalSecs/60).toString() + ":"
 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+            if (totalSecs % 60 < 10) {
+                document.getElementById("timer").innerHTML += "0"
+            }
+            document.getElementById("timer").innerHTML += (totalSecs%60).toString()
+
+
+            if (totalSecs > 0) {
+                totalSecs -= 1
+            } else {
+                clearInterval(timer)
+            }
+
+        }, 1000);
+    }
 </script>
 
 </body>
