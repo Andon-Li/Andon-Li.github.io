@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Day 5: Doesn&rsquo;t He Have Intern-Elves For This?#Part 1#Solutions#Mineimport multiprocessing for i in range(100): print(&#39;hello world&#39;) Person2import cvs while True: print(&#39;Someone Else!&#39;) Part 2#Solutions#">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="5: Doesn&#39;t He Have Intern-Elves For This?" />
+<meta property="og:description" content="Day 5: Doesn&rsquo;t He Have Intern-Elves For This?#Part 1#Solutions#Mineimport multiprocessing for i in range(100): print(&#39;hello world&#39;) Person2import cvs while True: print(&#39;Someone Else!&#39;) Part 2#Solutions#" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/aoc/2022/5/" /><meta property="article:section" content="docs" />
+
+
+
+<title>5: Doesn&#39;t He Have Intern-Elves For This? | Andon Li</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="http://localhost:1313/docs/aoc/2022/5/">
+<link rel="stylesheet" href="/book.min.4f0117e74e5337280f18eb9641eae520cb4b25adcf5dd64fafad4664145a5957.css" integrity="sha256-TwEX505TNygPGOuWQerlIMtLJa3PXdZPr61GZBRaWVc=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.85b2c020201aedca28ba31b2b5c0b064a4898ed5504809d0b417cf3292bde69e.js" integrity="sha256-hbLAICAa7cooujGytcCwZKSJjtVQSAnQtBfPMpK95p4=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Andon Li</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/about-me/" class="">About Me</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8be364a636487223e76e6e0e89ba1804" class="toggle"  />
+    <label for="section-8be364a636487223e76e6e0e89ba1804" class="flex justify-between">
+      <a role="button" class="">Collapsed</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/collapsed/3rd-level/" class="">3rd Level</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/about-me/collapsed/3rd-level/4th-level/" class="">4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/aoc/" class="">Advent Of Code</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0dfd5a013793a597d4ea874ae071448d" class="toggle"  />
+    <label for="section-0dfd5a013793a597d4ea874ae071448d" class="flex justify-between">
+      <a role="button" class="">2023</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2023/1/" class="">1: Trebuchet?!</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2023/2/" class="">2: Cube Conundrum</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2eb4a4f35f7c452b554c7242c2a0a380" class="toggle" checked />
+    <label for="section-2eb4a4f35f7c452b554c7242c2a0a380" class="flex justify-between">
+      <a role="button" class="">2022</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2022/1/" class="">1: Not Quite Lisp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2022/2/" class="">2: I Was Told There Would Be No Math</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2022/3/" class="">3: Perfectly Spherical Houses in a Vacuum</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2022/4/" class="">4: The Ideal Stocking Stuffer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/aoc/2022/5/" class="active">5: Doesn&#39;t He Have Intern-Elves For This?</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Shortcodes</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d4c83c0dd655503a3da63d0c6550ed41" class="toggle"  />
+    <label for="section-d4c83c0dd655503a3da63d0c6550ed41" class="flex justify-between">
+      <a href="/docs/shortcodes/section/" class="">Section</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/section/first-page/" class="">First Page</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/section/second-page/" class="">Second Page</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/katex/" class="">KaTeX</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>5: Doesn&#39;t He Have Intern-Elves For This?</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#day-5-doesnt-he-have-intern-elves-for-this">Day 5: Doesn&rsquo;t He Have Intern-Elves For This?</a>
+      <ul>
+        <li><a href="#part-1">Part 1</a>
+          <ul>
+            <li><a href="#solutions">Solutions</a></li>
+          </ul>
+        </li>
+        <li><a href="#part-2">Part 2</a>
+          <ul>
+            <li><a href="#solutions-1">Solutions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="day-5-doesnt-he-have-intern-elves-for-this">
+  Day 5: Doesn&rsquo;t He Have Intern-Elves For This?
+  <a class="anchor" href="#day-5-doesnt-he-have-intern-elves-for-this">#</a>
+</h1>
+<h2 id="part-1">
+  Part 1
+  <a class="anchor" href="#part-1">#</a>
+</h2>
+<h3 id="solutions">
+  Solutions
+  <a class="anchor" href="#solutions">#</a>
+</h3>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+  <label for="tabs-uniqueid-0">Mine</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> multiprocessing
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>	print(<span style="color:#e6db74">&#39;hello world&#39;</span>)
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
+  <label for="tabs-uniqueid-1">Person2</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> cvs
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>	print(<span style="color:#e6db74">&#39;Someone Else!&#39;</span>)
+</span></span></code></pre></div></div></div>
+
+<h2 id="part-2">
+  Part 2
+  <a class="anchor" href="#part-2">#</a>
+</h2>
+<h3 id="solutions-1">
+  Solutions
+  <a class="anchor" href="#solutions-1">#</a>
+</h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#day-5-doesnt-he-have-intern-elves-for-this">Day 5: Doesn&rsquo;t He Have Intern-Elves For This?</a>
+      <ul>
+        <li><a href="#part-1">Part 1</a>
+          <ul>
+            <li><a href="#solutions">Solutions</a></li>
+          </ul>
+        </li>
+        <li><a href="#part-2">Part 2</a>
+          <ul>
+            <li><a href="#solutions-1">Solutions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

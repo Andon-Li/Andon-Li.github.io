@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2023 on Andon Li</title>
+    <link>http://localhost:1313/docs/aoc/2023/</link>
+    <description>Recent content in 2023 on Andon Li</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/docs/aoc/2023/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1: Trebuchet?!</title>
+      <link>http://localhost:1313/docs/aoc/2023/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aoc/2023/1/</guid>
+      <description>Day 1: Trebuchet?!&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;The input are lines of text where each line contains a &amp;ldquo;calibration value&amp;rdquo;. To find the calibration value in each line, find the first and last number contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.&#xA;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;input = &amp;#39;&amp;#39; # Puzzle input here def solution(input): sum = 0 for line in input.</description>
+    </item>
+    <item>
+      <title>2: Cube Conundrum</title>
+      <link>http://localhost:1313/docs/aoc/2023/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aoc/2023/2/</guid>
+      <description>&#xD;Day 2: Cube Conundrum&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;Solutions&#xD;#&#xD;Part 2&#xD;#&#xD;The Problem&#xD;#&#xD;Solutions&#xD;#&#xD;</description>
+    </item>
+  </channel>
+</rss>

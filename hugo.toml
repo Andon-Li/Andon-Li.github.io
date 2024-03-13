@@ -1,0 +1,12 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Andon Li'
+theme = 'hugo-book'
+
+[params]
+	BookTheme = 'dark'
+	BookComments = false
+
+[markup]
+	[markup.tableOfContents]
+		startlevel = 1
