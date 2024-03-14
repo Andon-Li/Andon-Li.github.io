@@ -3,13 +3,13 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Day 1: Trebuchet?!#Part 1#The Problem#The input are lines of text where each line contains a &ldquo;calibration value&rdquo;. To find the calibration value in each line, find the first and last number contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.
-Solutions#Select To Reveal -&gt;Mine (Python)input = &#39;&#39; # Puzzle input here def solution(input): sum = 0 for line in input.">
+<meta name="description" content="Day 1: Trebuchet?!#Part 1#The Problem#The input is comprised of lines of text where each line contains a &ldquo;calibration value&rdquo;. To find the calibration value in each line, find the first and last digit contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.
+For example:">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="1: Trebuchet?!" />
-<meta property="og:description" content="Day 1: Trebuchet?!#Part 1#The Problem#The input are lines of text where each line contains a &ldquo;calibration value&rdquo;. To find the calibration value in each line, find the first and last number contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.
-Solutions#Select To Reveal -&gt;Mine (Python)input = &#39;&#39; # Puzzle input here def solution(input): sum = 0 for line in input." />
+<meta property="og:description" content="Day 1: Trebuchet?!#Part 1#The Problem#The input is comprised of lines of text where each line contains a &ldquo;calibration value&rdquo;. To find the calibration value in each line, find the first and last digit contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.
+For example:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/aoc/2023/1/" /><meta property="article:section" content="docs" />
 
@@ -21,7 +21,7 @@ Solutions#Select To Reveal -&gt;Mine (Python)input = &#39;&#39; # Puzzle inp
 <link rel="canonical" href="http://localhost:1313/docs/aoc/2023/1/">
 <link rel="stylesheet" href="/book.min.4f0117e74e5337280f18eb9641eae520cb4b25adcf5dd64fafad4664145a5957.css" integrity="sha256-TwEX505TNygPGOuWQerlIMtLJa3PXdZPr61GZBRaWVc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.dfa19ed935b380b87e9d9b8d6466f708fc0823f7c64b588204a1bcf3c0a7ae4e.js" integrity="sha256-36Ge2TWzgLh&#43;nZuNZGb3CPwII/fGS1iCBKG888Cnrk4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.464e33caf20832132cb17518c7a889d09f2032e3dc397892e9760d1b99b436f6.js" integrity="sha256-Rk4zyvIIMhMssXUYx6iJ0J8gMuPcOXiS6XYNG5m0NvY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -391,12 +391,14 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#part-1">Part 1</a>
           <ul>
             <li><a href="#the-problem">The Problem</a></li>
+            <li><a href="#insights">Insights</a></li>
             <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
         <li><a href="#part-2">Part 2</a>
           <ul>
             <li><a href="#the-problem-1">The Problem</a></li>
+            <li><a href="#insights-1">Insights</a></li>
             <li><a href="#solutions-1">Solutions</a></li>
           </ul>
         </li>
@@ -426,10 +428,28 @@ https://github.com/alex-shpak/hugo-book
   The Problem
   <a class="anchor" href="#the-problem">#</a>
 </h3>
-<p>The input are lines of text where each line contains a &ldquo;calibration value&rdquo;.
-To find the calibration value in each line, find the first and last number contained on each line.
+<p>The input is comprised of lines of text where each line contains a &ldquo;calibration value&rdquo;.
+To find the calibration value in each line, find the first and last digit contained on each line.
 The first and last number of each line will form a two digit number
 The answer is the sum of every two digit number.</p>
+<p>For example:</p>
+<blockquote>
+<p>1abc2<br>
+pqr3sty8vwx<br>
+a1b2c3d4e5f<br>
+treb7uchet</p>
+</blockquote>
+<p>In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.</p>
+<p><strong>What is the sum of all of the calibration values?</strong></p>
+<h3 id="insights">
+  Insights
+  <a class="anchor" href="#insights">#</a>
+</h3>
+<p>It is possible for the first and second digit of a given line to be at the same position.</p>
+<blockquote>
+<p>example8string</p>
+</blockquote>
+<p>The first digit of the string is 8. The last digit of the string is the same 8.</p>
 <h3 id="solutions">
   Solutions
   <a class="anchor" href="#solutions">#</a>
@@ -476,7 +496,22 @@ The answer is the sum of every two digit number.</p>
   The Problem
   <a class="anchor" href="#the-problem-1">#</a>
 </h3>
-<p>Now, you must account for numbers that are spelled out.</p>
+<p>Now you must consider numbers that are not only represented by digits (1-9), but also as english words (e.g.: six)</p>
+<blockquote>
+<p>two1nine<br>
+eightwothree<br>
+abcone2threexyz<br>
+xtwone3four<br>
+4nineeightseven2<br>
+vzoneight234<br>
+7pqrstsixteen</p>
+</blockquote>
+<p>In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.</p>
+<p><strong>What is the sum of all of the calibration values</strong></p>
+<h3 id="insights-1">
+  Insights
+  <a class="anchor" href="#insights-1">#</a>
+</h3>
 <h3 id="solutions-1">
   Solutions
   <a class="anchor" href="#solutions-1">#</a>
@@ -535,12 +570,14 @@ The answer is the sum of every two digit number.</p>
         <li><a href="#part-1">Part 1</a>
           <ul>
             <li><a href="#the-problem">The Problem</a></li>
+            <li><a href="#insights">Insights</a></li>
             <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
         <li><a href="#part-2">Part 2</a>
           <ul>
             <li><a href="#the-problem-1">The Problem</a></li>
+            <li><a href="#insights-1">Insights</a></li>
             <li><a href="#solutions-1">Solutions</a></li>
           </ul>
         </li>
