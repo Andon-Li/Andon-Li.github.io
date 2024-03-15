@@ -19,9 +19,9 @@ For example:" />
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
 <link rel="canonical" href="http://localhost:1313/docs/aoc/2023/1/">
-<link rel="stylesheet" href="/book.min.4f0117e74e5337280f18eb9641eae520cb4b25adcf5dd64fafad4664145a5957.css" integrity="sha256-TwEX505TNygPGOuWQerlIMtLJa3PXdZPr61GZBRaWVc=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.bea5070cfd4cdfb84b213899e45befd7a0fad4fa5025dbf5b06d55abf6b81a2d.css" integrity="sha256-vqUHDP1M37hLITiZ5Fvv16D61PpQJdv1sG1Vq/a4Gi0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.464e33caf20832132cb17518c7a889d09f2032e3dc397892e9760d1b99b436f6.js" integrity="sha256-Rk4zyvIIMhMssXUYx6iJ0J8gMuPcOXiS6XYNG5m0NvY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.b1540c1ecbf17a21e71f28e4d86516e2e631aee0d37c971a8f0d9ebe03f951e7.js" integrity="sha256-sVQMHsvxeiHnHyjk2GUW4uYxruDTfJcajw2evgP5Uec=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -496,7 +496,8 @@ treb7uchet</p>
   The Problem
   <a class="anchor" href="#the-problem-1">#</a>
 </h3>
-<p>Now you must consider numbers that are not only represented by digits (1-9), but also as english words (e.g.: six)</p>
+<p>Now you must consider numbers that are not only represented by digits, but also as english words.
+The words: &ldquo;one&rdquo;, &ldquo;two&rdquo;, &ldquo;three&rdquo;, &ldquo;four&rdquo;, &ldquo;five&rdquo;, &ldquo;six&rdquo;, &ldquo;seven&rdquo;, &ldquo;eight&rdquo;, and &ldquo;nine&rdquo;, now also count as digits.</p>
 <blockquote>
 <p>two1nine<br>
 eightwothree<br>
@@ -507,11 +508,17 @@ vzoneight234<br>
 7pqrstsixteen</p>
 </blockquote>
 <p>In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.</p>
-<p><strong>What is the sum of all of the calibration values</strong></p>
+<p><strong>What is the sum of all of the calibration values?</strong></p>
 <h3 id="insights-1">
   Insights
   <a class="anchor" href="#insights-1">#</a>
 </h3>
+<p>Words can overlap</p>
+<blockquote>
+<p>xnineightx</p>
+</blockquote>
+<p>The words &ldquo;nine&rdquo; and &ldquo;eight&rdquo; overlap, but still count as individual numbers.
+The calibration number of the example is 98.</p>
 <h3 id="solutions-1">
   Solutions
   <a class="anchor" href="#solutions-1">#</a>
@@ -524,7 +531,27 @@ vzoneight234<br>
   <label for="tabs-Part_2-0">Select To Reveal -&gt;</label>
   <div class="book-tabs-content markdown-inner"></div><input type="radio" class="toggle" name="tabs-Part_2" id="tabs-Part_2-1"  />
   <label for="tabs-Part_2-1">Mine (Python)</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div></div><input type="radio" class="toggle" name="tabs-Part_2" id="tabs-Part_2-2"  />
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">part2</span>(puzzle_input):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">word_to_digit</span>(match_obj):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">match</span> match_obj<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;one&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;two&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;three&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;four&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;five&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;six&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;seven&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;eight&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;nine&#39;</span>: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> _: <span style="color:#66d9ef">return</span> int(match_obj<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> puzzle_input<span style="color:#f92672">.</span>split():
+</span></span><span style="display:flex;"><span>        match_iter <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>finditer(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(?=(one|two|three|four|five|six|seven|eight|nine|\d))&#39;</span>, line)
+</span></span><span style="display:flex;"><span>        only_digits <span style="color:#f92672">=</span> [word_to_digit(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> match_iter]
+</span></span><span style="display:flex;"><span>        total <span style="color:#f92672">+=</span> only_digits[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> only_digits[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> total
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-Part_2" id="tabs-Part_2-2"  />
   <label for="tabs-Part_2-2">Person2</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div></div></div>
 
