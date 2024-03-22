@@ -7,5 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Block Blast</title>
+      <link>http://localhost:1313/docs/blockblast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/blockblast/</guid>
+      <description>Block Blast&#xD;#&#xD;8x8 game area&#xA;Score calculation&#xD;#&#xD;number of of tiles placed&#xA;Data Points&#xD;#&#xD;Clearing whole game 300&#xA;Clearing one row with no combo = 10&#xA;Clearing two rows with no combo = 20&#xA;Clearing three rows with no combo = 60&#xA;4 rows no combo 120&#xA;Clearing five row with no combo = 200&#xA;Clearing 5 row with 2 combo =&#xA;3 r</description>
+    </item>
   </channel>
 </rss>

@@ -12,21 +12,21 @@
       <link>http://localhost:1313/docs/aoc/2023/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/aoc/2023/1/</guid>
-      <description>Day 1: Trebuchet?!&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;The input is comprised of lines of text where each line contains a &amp;ldquo;calibration value&amp;rdquo;. To find the calibration value in each line, find the first and last digit contained on each line. The first and last number of each line will form a two digit number The answer is the sum of every two digit number.&#xA;For example:</description>
+      <description>Day 1: Trebuchet?!&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;The input is comprised of lines of text where each line contains a &amp;ldquo;calibration value&amp;rdquo;. To find the calibration value in each line, find the first and last digit contained on each line. The first and last number of each line will form a two digit number. The answer is the sum of every two digit number.&#xA;For example:</description>
     </item>
     <item>
       <title>2: Cube Conundrum</title>
       <link>http://localhost:1313/docs/aoc/2023/2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/aoc/2023/2/</guid>
-      <description>&#xD;Day 2: Cube Conundrum&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;Part 2&#xD;#&#xD;The Problem&#xD;#&#xD;Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;</description>
+      <description>Day 2: Cube Conundrum&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;An elf presents you with a bag that holds red, green, and blue cubes. During each game, the elf will load the bag with some number of cubes. Then, he reaches in a grabs some gems as shows them to you, then places them back in the bag. He does this a few times per game.&#xA;The puzzle input details the count of each color of cube for each handful of gems, for each game.</description>
     </item>
     <item>
       <title>3: Gear Ratios</title>
       <link>http://localhost:1313/docs/aoc/2023/3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/aoc/2023/3/</guid>
-      <description>&#xD;Day 3: Gear Ratios&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;467..114..&#xA;...*......&#xA;..35..633.&#xA;......#...&#xA;617*......&#xA;.....+.58.&#xA;..592.....&#xA;......755.&#xA;...$.*....&#xA;.664.598..&#xA;Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;Part 2&#xD;#&#xD;The Problem&#xD;#&#xD;Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;</description>
+      <description>&#xD;Day 3: Gear Ratios&#xD;#&#xD;Part 1&#xD;#&#xD;The Problem&#xD;#&#xD;467..114..&#xD;...*......&#xD;..35..633.&#xD;......#...&#xD;617*......&#xD;.....+.58.&#xD;..592.....&#xD;......755.&#xD;...$.*....&#xD;.664.598.. Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;Part 2&#xD;#&#xD;The Problem&#xD;#&#xD;Insights&#xD;#&#xD;Solutions&#xD;#&#xD;Select To Reveal -&amp;gt;&#xD;Mine (Python)&#xD;Person2&#xD;</description>
     </item>
     <item>
       <title>4: Scratchcards</title>

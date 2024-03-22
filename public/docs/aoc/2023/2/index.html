@@ -3,11 +3,13 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Day 2: Cube Conundrum#Part 1#The Problem#Insights#Solutions#Select To Reveal -&gt;Mine (Python)Person2Part 2#The Problem#Insights#Solutions#Select To Reveal -&gt;Mine (Python)Person2">
+<meta name="description" content="Day 2: Cube Conundrum#Part 1#The Problem#An elf presents you with a bag that holds red, green, and blue cubes. During each game, the elf will load the bag with some number of cubes. Then, he reaches in a grabs some gems as shows them to you, then places them back in the bag. He does this a few times per game.
+The puzzle input details the count of each color of cube for each handful of gems, for each game.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="2: Cube Conundrum" />
-<meta property="og:description" content="Day 2: Cube Conundrum#Part 1#The Problem#Insights#Solutions#Select To Reveal -&gt;Mine (Python)Person2Part 2#The Problem#Insights#Solutions#Select To Reveal -&gt;Mine (Python)Person2" />
+<meta property="og:description" content="Day 2: Cube Conundrum#Part 1#The Problem#An elf presents you with a bag that holds red, green, and blue cubes. During each game, the elf will load the bag with some number of cubes. Then, he reaches in a grabs some gems as shows them to you, then places them back in the bag. He does this a few times per game.
+The puzzle input details the count of each color of cube for each handful of gems, for each game." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/aoc/2023/2/" /><meta property="article:section" content="docs" />
 
@@ -17,9 +19,9 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
 <link rel="canonical" href="http://localhost:1313/docs/aoc/2023/2/">
-<link rel="stylesheet" href="/book.min.bea5070cfd4cdfb84b213899e45befd7a0fad4fa5025dbf5b06d55abf6b81a2d.css" integrity="sha256-vqUHDP1M37hLITiZ5Fvv16D61PpQJdv1sG1Vq/a4Gi0=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.4f0117e74e5337280f18eb9641eae520cb4b25adcf5dd64fafad4664145a5957.css" integrity="sha256-TwEX505TNygPGOuWQerlIMtLJa3PXdZPr61GZBRaWVc=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.b1540c1ecbf17a21e71f28e4d86516e2e631aee0d37c971a8f0d9ebe03f951e7.js" integrity="sha256-sVQMHsvxeiHnHyjk2GUW4uYxruDTfJcajw2evgP5Uec=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.79cb5776b57e4691fe430a940c7efb1acf29c44f7d65591672c70050d741dbc7.js" integrity="sha256-ectXdrV&#43;RpH&#43;QwqUDH77Gs8pxE99ZVkWcscAUNdB28c=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -332,6 +334,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/blockblast/" class="">Block Blast</a>
+  
+
+        </li>
+      
+    
   </ul>
 
 
@@ -372,42 +387,10 @@ https://github.com/alex-shpak/hugo-book
 
   <label for="toc-control">
     
-    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
   </label>
 </div>
 
 
-  
-  <aside class="hidden clearfix">
-    
-  
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#day-2-cube-conundrumhttpsadventofcodecom2023day2"><a href="https://adventofcode.com/2023/day/2">Day 2: Cube Conundrum</a></a>
-      <ul>
-        <li><a href="#part-1">Part 1</a>
-          <ul>
-            <li><a href="#the-problem">The Problem</a></li>
-            <li><a href="#insights">Insights</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-          </ul>
-        </li>
-        <li><a href="#part-2">Part 2</a>
-          <ul>
-            <li><a href="#the-problem-1">The Problem</a></li>
-            <li><a href="#insights-1">Insights</a></li>
-            <li><a href="#solutions-1">Solutions</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-
-  </aside>
   
  
       </header>
@@ -426,10 +409,26 @@ https://github.com/alex-shpak/hugo-book
   The Problem
   <a class="anchor" href="#the-problem">#</a>
 </h3>
-<h3 id="insights">
-  Insights
-  <a class="anchor" href="#insights">#</a>
-</h3>
+<p>An elf presents you with a bag that holds red, green, and blue cubes.
+During each game, the elf will load the bag with some number of cubes.
+Then, he reaches in a grabs some gems as shows them to you, then places them back in the bag.
+He does this a few times per game.</p>
+<p>The puzzle input details the count of each color of cube for each handful of gems, for each game.
+Each game is given an ID number.</p>
+<p>Determine which games would be possible given that there are only 12 red cubes, 13 green cubes, and 14 blue cubes.</p>
+<p>The answer is the sum of all possible game IDs.</p>
+<p>For Example:</p>
+<pre tabindex="0"><code>Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green  
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue  
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red  
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red  
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+</code></pre><p>In this example, only games 1,2, and 5 are possible games. Game 3 is impossible because you saw 20 red cubes at one time. Game 4 is impossible because you saw 15 blue cubes at once. Thus, the answer is 1+2+5 = 8.</p>
+<p><strong>What is the sum of the IDs of those games?</strong></p>
+<blockquote class="book-hint info">
+  Because the elf returns each handful of cubes back into the bag, each handful is entirely independent of the others.
+</blockquote>
+
 <h3 id="solutions">
   Solutions
   <a class="anchor" href="#solutions">#</a>
@@ -454,9 +453,10 @@ https://github.com/alex-shpak/hugo-book
   The Problem
   <a class="anchor" href="#the-problem-1">#</a>
 </h3>
-<h3 id="insights-1">
+<p><strong>What is the sum of the power of these sets?</strong></p>
+<h3 id="insights">
   Insights
-  <a class="anchor" href="#insights-1">#</a>
+  <a class="anchor" href="#insights">#</a>
 </h3>
 <h3 id="solutions-1">
   Solutions
@@ -504,38 +504,6 @@ https://github.com/alex-shpak/hugo-book
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#day-2-cube-conundrumhttpsadventofcodecom2023day2"><a href="https://adventofcode.com/2023/day/2">Day 2: Cube Conundrum</a></a>
-      <ul>
-        <li><a href="#part-1">Part 1</a>
-          <ul>
-            <li><a href="#the-problem">The Problem</a></li>
-            <li><a href="#insights">Insights</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-          </ul>
-        </li>
-        <li><a href="#part-2">Part 2</a>
-          <ul>
-            <li><a href="#the-problem-1">The Problem</a></li>
-            <li><a href="#insights-1">Insights</a></li>
-            <li><a href="#solutions-1">Solutions</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
- 
-      </div>
-    </aside>
     
   </main>
 
