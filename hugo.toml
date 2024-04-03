@@ -10,3 +10,5 @@ theme = 'hugo-book'
 [markup]
 	[markup.tableOfContents]
 		startlevel = 1
+
+ignoreFiles = ['\.html$']
