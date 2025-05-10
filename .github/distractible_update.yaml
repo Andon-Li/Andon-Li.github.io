@@ -1,0 +1,33 @@
+name: Update Episode Data
+
+on:
+  # schedule:
+  #   - cron: 8 * * * *  # run on 8th minute of every hour
+  workflow_dispatch:
+
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Make API request and append to file
+        run: |
+          RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
+          echo "$RESPONSE" >> data.txt
+        
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add data.txt
+          git commit -m "Append API response"
+          git push
+        env:
+          # Needed for push to work in GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
