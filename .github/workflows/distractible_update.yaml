@@ -15,7 +15,7 @@ jobs:
       
       - name: Make API request and append to file
         run: |
-          RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID}}:${{ secrets.SPOTIFY_CLIENT_SECRET}}' | base64)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
+          RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64 -w 0)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
           echo "$RESPONSE" >> data.txt
         
       - name: Configure Git
