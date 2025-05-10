@@ -6,16 +6,24 @@ on:
   workflow_dispatch:
 
 
+env:
+  spotifyAccessToken:
+
+
 jobs:
-  update:
+  requestSpotifyAccessToken:
+    runs-on: ubuntu-latest
+    run: |
+      RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64 -w 0)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
+
+  commit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Make API request and append to file
+      - name: Write data to file
         run: |
-          RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64 -w 0)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
           echo "$RESPONSE" >> data.txt
         
       - name: Configure Git
@@ -26,7 +34,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git add data.txt
-          git commit -m "Append API response"
+          git commit -m "Distractible Data Update"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
