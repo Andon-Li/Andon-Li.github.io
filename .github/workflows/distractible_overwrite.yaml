@@ -1,0 +1,28 @@
+name: Overwrite all episode data
+
+on:
+  workflow_dispatch:
+
+jobs:
+  overwriteData:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run overwrite_episodes.py
+        run: |
+          python overwrite_episodes.py {{ secrets.SPOTIFY_CLIENT_ID }} {{ secrets.SPOTIFY_CLIENT_SECRET }}
+        
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add .github/workflows
+          git commit -m "Distractible Data Update"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

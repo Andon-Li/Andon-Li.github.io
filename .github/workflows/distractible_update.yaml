@@ -6,28 +6,32 @@ on:
   workflow_dispatch:
 
 
-env:
-  spotifyAccessToken:
-
-
 jobs:
-  requestSpotifyAccessToken:
+  updateData:
     runs-on: ubuntu-latest
     steps:
-    - name: curl POST request
+    - name: Request Spotify Access Key
       run: |
-        RESPONSE=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64 -w 0)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
+        AUTH_RES=$(curl -s -X POST -H "Authorization: Basic $(echo -n '${{ secrets.SPOTIFY_CLIENT_ID }}:${{ secrets.SPOTIFY_CLIENT_SECRET }}' | base64 -w 0)" -d grant_type=client_credentials https://accounts.spotify.com/api/token)
+    
+    - name: Extract Access Key
+      run: |
+        ACCESSKEY=$(echo "$AUTH_RES" | sed -n "s/.*key:\([^']*\)'.*/\1/p")
 
-  commit:
-    needs: requestSpotifyAccessToken
+
+  updateData:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Write data to file
+      - name: pip install pyYAML
         run: |
-          echo "$RESPONSE" >> data.txt
+          pip install pyYAML requests
+
+      - name: Run distractibleScript.py
+        run: |
+          python scripts/distractibleScript.py
         
       - name: Configure Git
         run: |
@@ -36,7 +40,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add data.txt
+          git add .github/workflows
           git commit -m "Distractible Data Update"
           git push
         env:
