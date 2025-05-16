@@ -21,7 +21,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add .github/workflows
+          git add -A
           git commit -m "Distractible Data Update"
           git push
         env:
