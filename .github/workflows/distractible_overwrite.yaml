@@ -12,7 +12,7 @@ jobs:
 
       - name: Run overwrite_episodes.py
         run: |
-          python overwrite_episodes.py {{ secrets.SPOTIFY_CLIENT_ID }} {{ secrets.SPOTIFY_CLIENT_SECRET }}
+          python ./scripts/distractible/overwrite_episodes.py {{ secrets.SPOTIFY_CLIENT_ID }} {{ secrets.SPOTIFY_CLIENT_SECRET }}
         
       - name: Configure Git
         run: |
