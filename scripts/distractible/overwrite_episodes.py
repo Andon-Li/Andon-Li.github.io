@@ -6,8 +6,8 @@ import yaml
 
 
 if __name__ == '__main__':
-    CLIENT_ID = sys.argv[1]
-    CLIENT_SECRET = sys.argv[2]
+    CLIENT_ID = argv[1]
+    CLIENT_SECRET = argv[2]
     encoded_client = b64encode(bytes(f'{CLIENT_ID}:{CLIENT_SECRET}', encoding='utf-8')).decode()
 
     access_token = requests.post('https://accounts.spotify.com/api/token', data={'grant_type': 'client_credentials'}, 
