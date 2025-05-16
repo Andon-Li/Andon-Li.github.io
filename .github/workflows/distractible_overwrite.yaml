@@ -22,7 +22,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git add -A
-          git commit -m "Distractible Data Update"
+          git commit -m "Distractible: Data Overwrite"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
