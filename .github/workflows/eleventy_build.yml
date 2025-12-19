@@ -1,27 +1,60 @@
 name: Eleventy Build
 
+
+# Run on push to master and manual activation.
 on:
   push:
     branches:
       - master
       
+  workflow_dispatch:
+
+
+# Ensures that only one concurrent instance of the Action.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v6
         with:
-          node-version: '10.x'
+          node-version: '22.x'
 
       - run: npm ci
 
       - run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload GitHub Pages artifact
+        id: upload
+        uses: actions/upload-pages-artifact@v6
         with:
-          deploy_key: $
-          publish_dir: ./dist
+          path: ./_site
+
+  deploy:
+    # Depends on build job
+    needs: build
+    
+    # Required permissions for GITHUB_TOKEN for deployment
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
