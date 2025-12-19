@@ -1,0 +1,25 @@
+{
+  "name": "andon-li.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andon-Li/Andon-Li.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andon-Li/Andon-Li.github.io/issues"
+  },
+  "homepage": "https://github.com/Andon-Li/Andon-Li.github.io#readme",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
