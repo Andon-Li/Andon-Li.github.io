@@ -33,7 +33,7 @@ jobs:
 
       - name: Upload GitHub Pages artifact
         id: upload
-        uses: actions/upload-pages-artifact@v6
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./_site
 
